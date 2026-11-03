@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#002B49">
+  <meta name="description" content="認識五十嵐：從一杯現泡好茶開始，分享日常裡簡單而剛好的好滋味。">
+  <title>關於我們｜五十嵐</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --navy: #002b49;
+      --blue: #0f4c81;
+      --yellow: #ffd100;
+      --cream: #faf6ee;
+      --green: #4a6b5d;
+      --ink: #2b231d;
+      --muted: #6f706d;
+      --white: #fff;
+      --page-width: 1240px;
+      --radius: 16px;
+      font-family: "Noto Sans TC", "PingFang TC", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--blue);
+      outline-offset: 4px;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    .utility-bar {
+      min-height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 24px;
+      padding: 6px max(24px, calc((100vw - var(--page-width)) / 2));
+      color: var(--white);
+      background: #001f35;
+      font-size: 12px;
+    }
+
+    .site-header {
+      position: sticky;
+      z-index: 10;
+      top: 0;
+      color: var(--white);
+      background: var(--navy);
+    }
+
+    .header-inner {
+      width: min(var(--page-width), calc(100% - 48px));
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0 auto;
+      gap: 32px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      flex-shrink: 0;
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing: .04em;
+    }
+
+    .brand-mark {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border: 2px solid var(--yellow);
+      border-radius: 50%;
+      color: var(--navy);
+      background: var(--yellow);
+      font-size: 15px;
+      letter-spacing: -.08em;
+    }
+
+    .brand small {
+      display: block;
+      margin-top: -6px;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .18em;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: clamp(18px, 3vw, 42px);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .main-nav a {
+      transition: color .2s ease;
+    }
+
+    .main-nav a:hover,
+    .utility-bar a:hover {
+      color: var(--yellow);
+    }
+
+    .nav-cta {
+      padding: 10px 18px;
+      border-radius: 10px;
+      color: var(--navy) !important;
+      background: var(--yellow);
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgb(255 255 255 / 28%);
+      border-radius: 12px;
+      color: var(--white);
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .menu-toggle svg {
+      width: 22px;
+      height: 22px;
+      margin: auto;
+    }
+
+    .hero {
+      position: relative;
+      min-height: min(670px, 74vw);
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      color: var(--white);
+      background: var(--navy);
+    }
+
+    .hero::before {
+      position: absolute;
+      inset: 0;
+      content: "";
+      background:
+        linear-gradient(90deg, rgb(0 26 44 / 82%) 0%, rgb(0 35 58 / 58%) 42%, rgb(0 35 58 / 5%) 100%),
+        url("https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=2200&q=85") center 48% / cover;
+    }
+
+    .hero-content {
+      position: relative;
+      width: min(var(--page-width), calc(100% - 48px));
+      margin: 0 auto;
+      padding: 88px 0 104px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      margin: 0 0 20px;
+      color: var(--yellow);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .16em;
+    }
+
+    .eyebrow::before {
+      width: 30px;
+      height: 2px;
+      content: "";
+      background: currentColor;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    .hero h1 {
+      max-width: 740px;
+      margin-bottom: 20px;
+      font-size: clamp(42px, 7vw, 82px);
+      line-height: 1.2;
+      letter-spacing: -.055em;
+    }
+
+    .hero h1 span {
+      color: var(--yellow);
+    }
+
+    .hero-copy {
+      max-width: 500px;
+      margin-bottom: 34px;
+      color: rgb(255 255 255 / 88%);
+      font-size: clamp(15px, 1.6vw, 18px);
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      min-height: 50px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 21px;
+      border: 1px solid transparent;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 800;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px rgb(0 0 0 / 16%);
+    }
+
+    .button-primary {
+      color: var(--navy);
+      background: var(--yellow);
+    }
+
+    .button-ghost {
+      border-color: rgb(255 255 255 / 65%);
+      color: var(--white);
+      background: rgb(255 255 255 / 8%);
+    }
+
+    .hero-note {
+      position: absolute;
+      right: max(24px, calc((100vw - var(--page-width)) / 2));
+      bottom: 28px;
+      color: rgb(255 255 255 / 78%);
+      font-size: 11px;
+      letter-spacing: .04em;
+    }
+
+    .section {
+      padding: 104px 24px;
+    }
+
+    .section-inner {
+      width: min(var(--page-width), 100%);
+      margin: 0 auto;
+    }
+
+    .section-heading {
+      max-width: 700px;
+      margin: 0 auto 52px;
+      text-align: center;
+    }
+
+    .section-heading .eyebrow {
+      color: var(--green);
+    }
+
+    .section-heading h2 {
+      margin-bottom: 15px;
+      color: var(--navy);
+      font-size: clamp(32px, 4vw, 52px);
+      line-height: 1.25;
+      letter-spacing: -.045em;
+    }
+
+    .section-heading p {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      align-items: center;
+      gap: clamp(36px, 7vw, 100px);
+    }
+
+    .story-image-wrap {
+      position: relative;
+      min-height: 480px;
+    }
+
+    .story-image {
+      height: 480px;
+      border-radius: var(--radius);
+      object-fit: cover;
+      box-shadow: 0 24px 60px rgb(43 35 29 / 12%);
+    }
+
+    .image-caption {
+      position: absolute;
+      right: -18px;
+      bottom: 25px;
+      max-width: 230px;
+      padding: 18px 22px;
+      border-radius: 12px;
+      color: var(--navy);
+      background: var(--yellow);
+      font-size: 14px;
+      font-weight: 800;
+      box-shadow: 0 12px 30px rgb(0 0 0 / 12%);
+    }
+
+    .story-copy .eyebrow {
+      color: var(--green);
+    }
+
+    .story-copy h2 {
+      margin-bottom: 20px;
+      color: var(--navy);
+      font-size: clamp(32px, 4vw, 48px);
+      line-height: 1.3;
+      letter-spacing: -.04em;
+    }
+
+    .story-copy p {
+      color: var(--muted);
+    }
+
+    .story-copy .button {
+      margin-top: 14px;
+      color: var(--navy);
+      background: var(--yellow);
+    }
+
+    .values-section {
+      background: #f0eadf;
+    }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .value-card {
+      min-height: 290px;
+      padding: 30px;
+      border: 1px solid rgb(0 43 73 / 8%);
+      border-radius: var(--radius);
+      background: var(--cream);
+      transition: transform .24s ease, box-shadow .24s ease;
+    }
+
+    .value-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 38px rgb(43 35 29 / 10%);
+    }
+
+    .value-icon {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 24px;
+      border-radius: 15px;
+      color: var(--navy);
+      background: var(--yellow);
+    }
+
+    .value-icon svg {
+      width: 27px;
+      height: 27px;
+    }
+
+    .value-card h3 {
+      margin-bottom: 11px;
+      color: var(--navy);
+      font-size: 21px;
+    }
+
+    .value-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .highlight {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 440px;
+      overflow: hidden;
+      border-radius: 20px;
+      color: var(--white);
+      background: var(--navy);
+    }
+
+    .highlight-copy {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: clamp(32px, 6vw, 74px);
+    }
+
+    .highlight-copy .eyebrow {
+      color: var(--yellow);
+    }
+
+    .highlight-copy h2 {
+      margin-bottom: 18px;
+      font-size: clamp(32px, 4vw, 48px);
+      line-height: 1.3;
+      letter-spacing: -.04em;
+    }
+
+    .highlight-copy p {
+      max-width: 450px;
+      margin-bottom: 25px;
+      color: rgb(255 255 255 / 78%);
+    }
+
+    .highlight-image {
+      min-height: 360px;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .highlight-copy .button {
+      color: var(--navy);
+      background: var(--yellow);
+    }
+
+    .closing {
+      padding: 86px 24px;
+      text-align: center;
+    }
+
+    .closing h2 {
+      margin-bottom: 13px;
+      color: var(--navy);
+      font-size: clamp(30px, 4vw, 46px);
+      letter-spacing: -.04em;
+    }
+
+    .closing p {
+      margin-bottom: 28px;
+      color: var(--muted);
+    }
+
+    .closing .button {
+      color: var(--navy);
+      background: var(--yellow);
+    }
+
+    .site-footer {
+      padding: 54px 24px 22px;
+      color: var(--white);
+      background: #001f35;
+    }
+
+    .footer-inner {
+      width: min(var(--page-width), 100%);
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 35px;
+      margin: 0 auto;
+    }
+
+    .footer-brand p {
+      max-width: 280px;
+      margin: 18px 0 0;
+      color: rgb(255 255 255 / 66%);
+      font-size: 13px;
+    }
+
+    .footer-column h2 {
+      margin-bottom: 14px;
+      color: var(--yellow);
+      font-size: 13px;
+    }
+
+    .footer-column a {
+      display: block;
+      width: fit-content;
+      margin: 8px 0;
+      color: rgb(255 255 255 / 74%);
+      font-size: 13px;
+    }
+
+    .footer-column a:hover {
+      color: var(--yellow);
+    }
+
+    .copyright {
+      width: min(var(--page-width), 100%);
+      margin: 38px auto 0;
+      padding-top: 18px;
+      border-top: 1px solid rgb(255 255 255 / 17%);
+      color: rgb(255 255 255 / 52%);
+      font-size: 11px;
+    }
+
+    @media (max-width: 760px) {
+      .utility-bar {
+        display: none;
+      }
+
+      .header-inner {
+        width: min(100% - 32px, var(--page-width));
+        min-height: 70px;
+      }
+
+      .menu-toggle {
+        display: grid;
+      }
+
+      .main-nav {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        display: none;
+        align-items: stretch;
+        gap: 0;
+        padding: 8px 20px 20px;
+        background: var(--navy);
+      }
+
+      .main-nav.is-open {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .main-nav a {
+        padding: 13px 4px;
+        border-top: 1px solid rgb(255 255 255 / 14%);
+      }
+
+      .main-nav .nav-cta {
+        margin-top: 10px;
+        padding: 12px 16px;
+        border: 0;
+        text-align: center;
+      }
+
+      .hero {
+        min-height: 600px;
+      }
+
+      .hero::before {
+        background:
+          linear-gradient(90deg, rgb(0 26 44 / 82%) 0%, rgb(0 35 58 / 60%) 68%, rgb(0 35 58 / 25%) 100%),
+          url("https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=1200&q=80") 58% center / cover;
+      }
+
+      .hero-content {
+        width: min(100% - 40px, var(--page-width));
+        padding: 75px 0 90px;
+      }
+
+      .hero-note {
+        right: 20px;
+        bottom: 18px;
+      }
+
+      .section {
+        padding: 76px 20px;
+      }
+
+      .section-heading {
+        margin-bottom: 38px;
+      }
+
+      .story-grid,
+      .highlight {
+        grid-template-columns: 1fr;
+      }
+
+      .story-image-wrap {
+        min-height: 350px;
+      }
+
+      .story-image {
+        height: 350px;
+      }
+
+      .image-caption {
+        right: -6px;
+        bottom: 15px;
+      }
+
+      .value-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .value-card {
+        min-height: auto;
+      }
+
+      .highlight-image {
+        min-height: 280px;
+        max-height: 360px;
+      }
+
+      .footer-inner {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 420px) {
+      .brand {
+        font-size: 22px;
+      }
+
+      .brand-mark {
+        width: 42px;
+        height: 42px;
+      }
+
+      .button-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 25px 16px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="utility-bar" aria-label="快速連結">
+    <a href="#our-story">品牌故事</a>
+    <a href="#our-values">我們的堅持</a>
+    <a href="#find-us">門市據點</a>
+  </div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#" aria-label="五十嵐首頁">
+        <span class="brand-mark" aria-hidden="true">50嵐</span>
+        <span>五十嵐<small>TEA, MADE FRESH</small></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="開啟導覽選單" aria-expanded="false" aria-controls="main-nav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" />
+        </svg>
+      </button>
+      <nav class="main-nav" id="main-nav" aria-label="主要導覽">
+        <a href="#our-story">關於五十嵐</a>
+        <a href="#our-values">一杯茶的日常</a>
+        <a href="#our-way">我們的堅持</a>
+        <a href="#find-us">門市資訊</a>
+        <a class="nav-cta" href="#find-us">找到附近門市 <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <p class="eyebrow">ABOUT 50LAN</p>
+        <h1 id="hero-title">讓一杯好茶，<br><span>剛剛好地陪伴日常。</span></h1>
+        <p class="hero-copy">從熟悉的茶香開始，把每一份新鮮、每一個剛好的甜度，做成生活裡值得期待的小小日常。</p>
+        <div class="button-row">
+          <a class="button button-primary" href="#our-story">認識五十嵐 <span aria-hidden="true">↓</span></a>
+          <a class="button button-ghost" href="#our-values">看看我們的堅持</a>
+        </div>
+      </div>
+      <span class="hero-note">一杯現泡好茶，陪你走過每一天。</span>
+    </section>
+
+    <section class="section" id="our-story" aria-labelledby="story-title">
+      <div class="section-inner story-grid">
+        <div class="story-image-wrap">
+          <img
+            class="story-image"
+            src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=1100&q=85"
+            alt="一杯茶與茶葉，呈現日常品茶的安定時刻"
+            loading="lazy"
+          >
+          <div class="image-caption">從一杯茶開始，<br>把平凡日子過得有滋味。</div>
+        </div>
+        <div class="story-copy">
+          <p class="eyebrow">OUR STORY</p>
+          <h2 id="story-title">熟悉的茶香，<br>是我們想分享的事。</h2>
+          <p>五十嵐相信，好喝不必複雜。挑選熟悉的茶葉風味，細心掌握每一杯的比例與口感，讓茶香自然融入日常。</p>
+          <p>無論是忙碌途中、和朋友相聚，或只是想為自己留一點時間，都能找到一杯合心意的飲料。新鮮現做，是我們對每一次相遇的基本款待。</p>
+          <a class="button" href="#our-way">看看我們如何準備每一杯 <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section values-section" id="our-values" aria-labelledby="values-title">
+      <div class="section-inner">
+        <div class="section-heading">
+          <p class="eyebrow">A LITTLE BETTER, EVERY DAY</p>
+          <h2 id="values-title">日常裡的小事，<br>我們都認真對待。</h2>
+          <p>一杯喝起來舒服的茶，來自每個細節都恰到好處。</p>
+        </div>
+        <div class="value-grid">
+          <article class="value-card">
+            <div class="value-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M5 8h14l-1.2 11H6.2L5 8Z" /><path d="M9 8a3 3 0 0 1 6 0M8 12h8" />
+              </svg>
+            </div>
+            <h3>現點，現做</h3>
+            <p>每一杯依照你的選擇製作，保留剛完成時的風味與口感。</p>
+          </article>
+          <article class="value-card">
+            <div class="value-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 21s7-4.4 7-11V5l-7-3-7 3v5c0 6.6 7 11 7 11Z" /><path d="m9 12 2 2 4-4" />
+              </svg>
+            </div>
+            <h3>把關每個細節</h3>
+            <p>從茶湯、配料到出杯流程，讓熟悉的好味道每次都能安心享用。</p>
+          </article>
+          <article class="value-card">
+            <div class="value-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 21s-8-4.5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.5-8 11-8 11Z" /><path d="M8 12h8" />
+              </svg>
+            </div>
+            <h3>每個人的剛剛好</h3>
+            <p>甜度、冰量和喜愛的搭配，讓每一杯都更貼近你的日常習慣。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="our-way" aria-labelledby="way-title">
+      <div class="section-inner">
+        <div class="highlight">
+          <div class="highlight-copy">
+            <p class="eyebrow">MADE FRESH FOR YOU</p>
+            <h2 id="way-title">好茶的日常，<br>從細心準備開始。</h2>
+            <p>熟悉的茶、喜歡的配料，再加上一點剛剛好的甜與冰。把選擇留給你，把新鮮交給我們。</p>
+            <a class="button" href="#find-us">來門市找一杯喜歡的 <span aria-hidden="true">→</span></a>
+          </div>
+          <img
+            class="highlight-image"
+            src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=1200&q=85"
+            alt="清爽飲品與水果，為日常增添一點風味"
+            loading="lazy"
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="closing" id="find-us" aria-labelledby="closing-title">
+      <div class="section-inner">
+        <p class="eyebrow">SEE YOU SOON</p>
+        <h2 id="closing-title">下一杯，想喝點什麼？</h2>
+        <p>到附近的五十嵐，挑一杯今天的好心情。</p>
+        <a class="button" href="https://www.google.com/maps/search/50%E5%B5%90+%E9%96%80%E5%B8%82/" target="_blank" rel="noopener noreferrer">尋找附近門市 <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a class="brand" href="#" aria-label="五十嵐首頁">
+          <span class="brand-mark" aria-hidden="true">50嵐</span>
+          <span>五十嵐<small>TEA, MADE FRESH</small></span>
+        </a>
+        <p>一杯現泡好茶，陪你走過每一天。</p>
+      </div>
+      <div class="footer-column">
+        <h2>認識我們</h2>
+        <a href="#our-story">品牌故事</a>
+        <a href="#our-values">我們的堅持</a>
+      </div>
+      <div class="footer-column">
+        <h2>探索更多</h2>
+        <a href="#our-way">一杯茶的日常</a>
+        <a href="#find-us">門市據點</a>
+      </div>
+      <div class="footer-column">
+        <h2>聯絡我們</h2>
+        <a href="#find-us">門市資訊</a>
+        <a href="#find-us">尋找附近門市</a>
+      </div>
+    </div>
+    <p class="copyright">© 2026 五十嵐品牌概念頁｜本頁為網頁設計示範。</p>
+  </footer>
+
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const mainNav = document.querySelector("#main-nav");
+
+    menuToggle.addEventListener("click", () => {
+      const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
+      menuToggle.setAttribute("aria-expanded", String(!isExpanded));
+      menuToggle.setAttribute("aria-label", isExpanded ? "開啟導覽選單" : "關閉導覽選單");
+      mainNav.classList.toggle("is-open", !isExpanded);
+    });
+
+    mainNav.addEventListener("click", (event) => {
+      if (event.target.closest("a")) {
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "開啟導覽選單");
+        mainNav.classList.remove("is-open");
+      }
+    });
+  </script>
+</body>
+</html>
