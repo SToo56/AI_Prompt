@@ -17,7 +17,9 @@
 
 - 已完成：PowerShell 語法解析與 VS Code Task JSON 驗證通過。
 - 已完成：以獨立測試 Git 儲存庫確認精確路徑 commit 不會納入其他已暫存變更。
-- 尚未完成：需重新開啟工作區並允許自動 Task 後，才能驗證實際檔案監看與遠端 push。
+- 已完成：在隔離的 Windows PowerShell／Git 環境驗證監看器可自動 commit 並 push，commit 格式與 Co-authored-by trailer 正確。
+- 已完成：初始 commit `616ea2b` 已推送至 `origin/main`，並設定本機分支追蹤遠端 `main`。
+- 尚未完成：需重新開啟本工作區並允許自動 Task，才能啟用監看器。
 
 ## 驗證結果
 
@@ -26,4 +28,3 @@
 ## 待辦事項
 
 - 重新開啟工作區；若 VS Code 要求授權自動 Task，請允許「自動 commit 並 push」Task 執行。
-- 專案目前沒有本機 commit，origin 也沒有分支；需先建立並推送初始 commit，後續自動 push 才能運作。
